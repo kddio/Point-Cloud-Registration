@@ -1,0 +1,5 @@
+{
+  "name": "NebulaReg - AI Point Cloud Registration",
+  "description": "A professional-grade 3D point cloud registration system featuring manual alignment tools, automatic centroid registration, and Gemini-powered geometry analysis.",
+  "requestFramePermissions": []
+}
