@@ -7,6 +7,22 @@ import { COLORS } from '../constants';
 import { calculateBoundingRadius, calculateCentroid } from '../utils/mathUtils';
 
 // Fix for missing React Three Fiber JSX elements in TypeScript
+// Augmenting 'react' module's JSX namespace for newer React types
+declare module 'react' {
+  namespace JSX {
+    interface IntrinsicElements {
+      points: any;
+      bufferGeometry: any;
+      bufferAttribute: any;
+      pointsMaterial: any;
+      ambientLight: any;
+      pointLight: any;
+      color: any;
+    }
+  }
+}
+
+// Augmenting global JSX namespace for older React types or different setups
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -17,7 +33,6 @@ declare global {
       ambientLight: any;
       pointLight: any;
       color: any;
-      [elemName: string]: any;
     }
   }
 }

@@ -17,9 +17,8 @@ export const loadPointCloudFile = async (file: File): Promise<Float32Array> => {
       try {
         if (extension === 'pcd') {
           const loader = new PCDLoader();
-          // PCDLoader.parse signature can vary slightly in TS types, but usually accepts (data, url)
-          // Passing empty string as url helps satisfy some definitions
-          const points = loader.parse(result as ArrayBuffer, '');
+          // PCDLoader.parse signature takes 1 argument (data) in newer three versions
+          const points = loader.parse(result as ArrayBuffer);
           
           const geometry = points.geometry;
           if (geometry && geometry.attributes.position) {
